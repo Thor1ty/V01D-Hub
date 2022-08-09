@@ -29,13 +29,13 @@ local UNI = Window:MakeTab({
 A:AddButton({
 	Name = "Button!",
 	Callback = function()
-      		print("button pressed")
+      		print("Player has press button")
   	end    
 })
 UNI:AddButton({
 	Name = "Button!",
 	Callback = function()
-        OrionLib:Destroy()
+        	print("Player has press button")
   	end    
 })
 UNI:AddSlider({
