@@ -21,20 +21,22 @@ local JB = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
-local ArsenalTab = Window:MakeTab({
-	Name = "Arsenal",
+local UNI = Window:MakeTab({
+	Name = "Universal",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
 A:AddButton({
 	Name = "Button!",
 	Callback = function()
-      		print("Works!")
+      		print("button pressed")
   	end    
 })
-MM2:AddButton({
-	Name = "button",
+UNI:AddButton({
+	Name = "Button!",
 	Callback = function()
-		print("Works!")
-	end
+        OrionLib:Destroy()
+  	end    
 })
+
+OrionLib:Init()
