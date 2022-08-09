@@ -29,6 +29,12 @@ local ArsenalTab = Window:MakeTab({
 A:AddButton({
 	Name = "Button!",
 	Callback = function()
-      		print("button pressed")
+      		print("Works!")
   	end    
+})
+MM2:AddButton({
+	Name = "button",
+	Callback = function()
+		print("Works!")
+	end
 })
