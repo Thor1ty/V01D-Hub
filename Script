@@ -6,36 +6,63 @@ OrionLib:MakeNotification({
 	Image = "rbxassetid://4483345998",
 	Time = 5
 })
-local A = Window:MakeTab({
+-- here im adding the tabs for the hub
+local arsenal = Window:MakeTab({
 	Name = "Arsenal",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
-local MM2 = Window:MakeTab({
-	Name = "Murder Mystery 2",
+local bedwars = Window:MakeTab({
+	Name = "Bedwars",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
-local JB = Window:MakeTab({
+local jailbreak = Window:MakeTab({
 	Name = "Jailbreak",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
-local UNI = Window:MakeTab({
+local universal = Window:MakeTab({
 	Name = "Universal",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
+-- Arsenal Scripts
 A:AddButton({
-	Name = "Button!",
+	Name = "Dark Hub",
 	Callback = function()
-      		print("Player has press button")
-  	end    
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomAdamYT/DarkHub/master/Init", true))()
+        print("DarkHub Loaded! Get key from https://darkhub-v4.maxt.church/")
+  	end
 })
-UNI:AddButton({
-	Name = "Button!",
+A:AddButton({
+	Name = "Vestra Hub",
 	Callback = function()
-        	print("Player has press button")
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/xandudiscord/vestra/main/loader.lua"))()
+        print("Vestra Hub Loaded! Get key from https://direct-link.net/364231/vestra-hub-key/")
+  	end
+})
+-- Bedwars Scripts
+bedwars:AddButton({
+	Name = "Vape V4",
+	Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
+        print("Vape V4 Loaded!")
+  	end
+})
+bedwars:AddButton({
+	Name = "Future",
+	Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/joeengo/Future/main/loadstring.lua', true))()
+        print("Future Loaded!")
+  	end
+})
+--Universal Scripts
+UNI:AddButton({
+	Name = "Owl Hub",
+	Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt"))();
+        print("Owl Hub Loaded!")
   	end    
 })
 UNI:AddSlider({
