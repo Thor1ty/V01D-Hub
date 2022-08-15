@@ -1,0 +1,116 @@
+local Library = loadstring(game:HttpGet("https://pastebin.com/raw/tqMYjd9y"))()
+local Main = Library.Category("Local Player", "LocalPlayer Mods", Color3.fromRGB(0, 204, 204))
+local Collect = game:GetService("ReplicatedStorage").Events["Collect Rent"]
+local Raise = game:GetService("ReplicatedStorage").Events["Raise Rent"]
+
+Main:Section("Floppa")
+    Main:Toggle(
+    "Auto Cash",
+    function(t)
+        getgenv().cash = t
+    end
+    )
+    
+    spawn(function()
+        while wait(0.01) do
+            if getgenv().cash == true then
+                    fireclickdetector(game.Workspace.Floppa.ClickDetector)
+                    pcall(function()
+                        for _, x in pairs(game:GetService("Workspace").Unlocks:GetDescendants()) do
+                            if x.Name == "Baby Floppa" then
+                                fireclickdetector(x.ClickDetector)
+                            end
+                        end
+                    end)
+                    wait(.01)
+                    for i, target in pairs(game.Workspace:GetDescendants()) do
+                        if target.Name == "Money" then
+                            firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, target, 0)
+                        end
+                    end
+                    
+                    
+                    
+            end
+        end
+    end)
+    
+    Main:Toggle(
+    "Auto Clean Boi",
+    function(t)
+        getgenv().clean = t
+    end
+    )
+    
+    spawn(function()
+        while wait(0.01) do
+            if getgenv().clean == true then
+                for i, target in pairs(game.Workspace:GetDescendants()) do
+                    pcall(function()
+                    if target.Name == "Poop" then
+                        fireproximityprompt(target.ProximityPrompt, 100)
+                    end
+                    end)
+                end
+            end
+        end
+    end)
+    
+        Main:Toggle(
+    "Auto Collect/Raise Rent",
+    function(t)
+        getgenv().rent = t
+    end
+    )
+    
+    spawn(function()
+        while wait(5) do
+            if getgenv().rent == true then
+                Collect:FireServer()
+                Raise:FireServer()
+
+                
+                    for i, target in pairs(game.Workspace:GetDescendants()) do
+                        if target.Name == "Rent" then
+                            firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, target, 0)
+                        end
+                    end
+            end
+        end
+    end)
+
+Main:Button(
+    "Feed Floppa",
+    function()
+        local cframe = game:GetService("Workspace")["Key Parts"].Bowl.Part.CFrame
+        local savedspot = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+        local A_1 = "Floppa Food"
+        local A_2 = "the_interwebs"
+        local Event = game:GetService("ReplicatedStorage").Events.Unlock
+        Event:FireServer(A_1, A_2)
+        wait(.1)
+        game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Character["Floppa Food"])
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cframe
+        wait(.4)
+        fireproximityprompt(game:GetService("Workspace").Unlocks["Baby Bowl"].Part.ProximityPrompt, 100)
+        wait(.8)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = savedspot
+
+        if game:GetService("Workspace").Unlocks["Baby Bowl"] ~= nil then
+        else
+        local cframe = game:GetService("Workspace").Unlocks["Baby Bowl"].Part.CFrame
+        local savedspot = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+        local A_1 = "Floppa Food"
+        local A_2 = "the_interwebs"
+        local Event = game:GetService("ReplicatedStorage").Events.Unlock
+        Event:FireServer(A_1, A_2)
+        wait(.1)
+        game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Character["Floppa Food"])
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cframe
+        wait(.4)
+        fireproximityprompt(game:GetService("Workspace").Unlocks["Baby Bowl"].Part.ProximityPrompt, 100)
+        wait(.8)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = savedspot 
+        end
+    end
+)
